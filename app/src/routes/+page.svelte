@@ -166,24 +166,22 @@
             padding: 0px 20px 
         }
 
-        #grid-1 { 
-            /* grid-area: 1 / 1 / 2 / 2; */
-        }
+        /* #grid-1 { 
+        } */
         #grid-2 { 
-            /* grid-area: 2 / 1 / 3 / 2; */
             aspect-ratio: 1145 / 1428;
         }
         #grid-4 { 
             grid-area: 3 / 1 / 4 / 2; 
         }
         #grid-3 { 
-            grid-area: 4 / 1 / 5 / 2; 
+            aspect-ratio: 828 / 1104;
         }
         #grid-5 { 
             grid-area: 5 / 1 / 6 / 2; 
         }
         #grid-6 { 
-            grid-area: 6 / 1 / 7 / 2;      
+            aspect-ratio: 3024 / 4032;
         }
     }
 

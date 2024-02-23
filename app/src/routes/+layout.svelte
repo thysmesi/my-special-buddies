@@ -6,7 +6,7 @@
 	import { fly } from 'svelte/transition';
 
 	var mobileLayout = false
-	var showMobileMenu = true
+	var showMobileMenu = false
 
 	function handleResize() {
 		mobileLayout = window.innerWidth < 1000;
