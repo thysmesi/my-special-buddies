@@ -1,1 +1,0 @@
-import{s,l as n,f as a,n as e}from"../chunks/scheduler.tkSxJcZ5.js";import{S as r,i as c}from"../chunks/index.D4Uvc7vQ.js";function h(o){return{c(){this.h()},l(t){n("svelte-1l1b2xp",document.head).forEach(a),this.h()},h(){document.title="Our Why"},m:e,p:e,i:e,o:e,d:e}}class m extends r{constructor(t){super(),c(this,t,null,h,s,{})}}export{m as component};
