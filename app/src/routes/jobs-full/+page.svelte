@@ -18,7 +18,7 @@
     <h2 class="mb-5 font-bold font-header pt-10 text-4xl text-center text-accent max-w-[850px]">Join Our Team of Volunteers/Workers</h2>
     <h5 class=" pt-8 font-body font-bold text-2xl">Create Profile -- Help New Friends Feel Loved And Appreciated Have Fun With Them -- Get Paid -- Get Volunteer Hours</h5>
 
-    <!-- <section class="bg-white ">
+    <section class="bg-white ">
         <div class="w-[95vw] max-w-[600px] flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div class="w-full relative bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 ">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -50,7 +50,7 @@
                 {/if}
             </div>
         </div>
-    </section>   -->
+    </section>  
     
     <h5 class=" py-5 font-body text-2xl">Have Questions? Email us at ellieewell@myspecialbuddies.com</h5>
 </main>

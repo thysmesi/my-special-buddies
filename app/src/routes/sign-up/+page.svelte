@@ -49,7 +49,7 @@
 </svelte:head>
 
 <main class="flex flex-col items-center px-24 pt-24">
-    <section class="bg-white ">
+    <section class="bg-white mt-8">
         <div class="w-[95vw] max-w-[600px] flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div class="w-full relative bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 ">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -62,9 +62,10 @@
                             <input bind:this={password} type="password" name="password" id="password" placeholder="Password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
                             <input bind:this={name} type="text" name="full-name" id="full-name" placeholder="Full Name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
                             <input bind:this={childName} type="text" name="child-name" id="child-name" placeholder="Your Child's Name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
-                            <input bind:this={bio} type="text" name="bio" id="bio" placeholder="Your Bio" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
+                            <!-- <input bind:this={bio} type="text" name="bio" id="bio" placeholder="Your Bio" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required=""> -->
                             <input bind:this={location} type="text" name="location" id="location" placeholder="Enter Location" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
                             <input bind:this={favoriteActivities} type="text" name="favorite-activities" id="favorite-activities" placeholder="Favorite Activities" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
+                            <textarea bind:this={bio} id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:accent-secondary" placeholder="Write your bio here..."></textarea>
                         </div>                        
                         <button on:click={onConfirmForm} class="w-full text-white bg-accent hover:bg-accent-secondary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Sign up</button>
                         <p class="text-sm font-light text-gray-500 ">
