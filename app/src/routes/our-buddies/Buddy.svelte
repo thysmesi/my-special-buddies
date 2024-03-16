@@ -2,7 +2,7 @@
     export let image, name, aboutMe
 </script>
 
-<div class="w-[1160px] h-[650px] flex items-center space-x-12">
+<div class="max-w-[1024px] lg:flex-row flex-col w-full lg:h-[650px] flex items-center space-x-12">
     <img class="h-full w-[440px] object-cover" src={image} alt="profile">
     <div class="flex flex-col items-start">
         <h1 class="font-bold font-header pt-20 pb-5 text-4xl text-center text-accent">{name} - 5 ⭐</h1>

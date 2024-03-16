@@ -6,7 +6,7 @@
     <title>Our Buddies</title>
 </svelte:head>
 
-<main class="flex flex-col items-center px-10">
+<main class="flex flex-col items-center px-10 pt-24">
     <h2 class="font-bold font-header pt-20 pb-5 text-4xl text-center text-accent">Meet Our Buddies</h2>
     <h5 class="mb-20 max-w-[650px] text-center font-body text-2xl text-foreground-second">Here are just a few examples of some of our wonderful friends at Special Buddies.</h5>
 

@@ -4,27 +4,37 @@
     import Error from "../../components/Error.svelte";
     import { goto } from '$app/navigation';
 
-    let error = null
-    let loading = false
-    let email, password, rememberMe
+    var error = null
+    var loading = false
+    var email, password, name, childName, bio, location, favoriteActivities, rememberMe
     
     async function onConfirmForm() {
-        if(email == undefined || email.length == 0) {error = "Email is invalid"; return}
-        if(password == undefined || password.length == 0) {error = "password is invalid"; return}
         let data = {
             email: email.value,
             password: password.value,
+            name: name.value,
+            childName: childName.value,
+            bio: bio.value,
+            location: location.value,
+            favoriteActivities: favoriteActivities.value
         }
         for (let [key, value] of Object.entries(data)) {
             data[key] = value.trim() 
         }
         if(!isEmail(data.email)) {error = "Email is invalid"; return}
+        if(data.password.length < 6) {error = "Password must be greater than 6 digits"; return}
         if(data.password.length > 256) {error = "Password must be less than 256 digits"; return}
+        if(data.name.length == 0) {error = "Name is required"; return}
+        if(data.childName.length == 0) {error = "Child's name is required"; return}
+        if(data.bio.length == 0) {error = "Bio is required"; return}
+        if(data.location.length == 0) {error = "Location is required"; return}
+        if(data.favoriteActivities.length == 0) {error = "Favorite activities is required"; return}
 
         let user = new User(data)
         
         loading = true
         try {
+            await App.signUp(user)
             await App.login(user)
             goto("../authenticated/dashboard", { replaceState: false })
         } catch (err) {
@@ -38,35 +48,27 @@
     <title>My Special Buddies: Login</title>
 </svelte:head>
 
-<main class="border-box flex flex-col items-center px-24 pt-24">
+<main class="flex flex-col items-center px-24 pt-24">
     <section class="bg-white ">
         <div class="w-[95vw] max-w-[600px] flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div class="w-full relative bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 ">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                        Sign in to your account
+                        Sign up to get started
                     </h1>
-                    <div class="space-y-4 md:space-y-6" action="#">
+                    <div class="space-y-4 md:space-y-6">
                         <div class="space-y-4">
-                            <!-- <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Your email</label> -->
-                            <input bind:this={email} type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 da" placeholder="Email" required="">
-                            <!-- <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Password</label> -->
+                            <input bind:this={email} type="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 da" placeholder="Email" required="">
                             <input bind:this={password} type="password" name="password" id="password" placeholder="Password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
-                        </div>
-                        <!-- <div class="flex items-center justify-between">
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                  <input bind:this={rememberMe} aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 " required="">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                  <label for="remember" class="text-gray-500 ">Remember me</label>
-                                </div>
-                            </div>
-                            <a href="#" class="text-sm font-medium text-accent hover:underline ">Forgot password?</a>
-                        </div> -->
-                        <button on:click={onConfirmForm} class="w-full text-white bg-accent hover:bg-accent-secondary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Sign in</button>
+                            <input bind:this={name} type="text" name="full-name" id="full-name" placeholder="Full Name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
+                            <input bind:this={childName} type="text" name="child-name" id="child-name" placeholder="Your Child's Name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
+                            <input bind:this={bio} type="text" name="bio" id="bio" placeholder="Your Bio" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
+                            <input bind:this={location} type="text" name="location" id="location" placeholder="Enter Location" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
+                            <input bind:this={favoriteActivities} type="text" name="favorite-activities" id="favorite-activities" placeholder="Favorite Activities" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:accent-secondary focus:accent-secondary block w-full p-2.5 " required="">
+                        </div>                        
+                        <button on:click={onConfirmForm} class="w-full text-white bg-accent hover:bg-accent-secondary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Sign up</button>
                         <p class="text-sm font-light text-gray-500 ">
-                            Don’t have an account yet? <a href="../sign-up" class="font-medium text-accent hover:underline ">Sign up</a>
+                            Already have an account? <a href="../log-in" class="font-medium text-accent hover:underline ">Log in</a>
                         </p>
                     </div>
                 </div>
@@ -83,6 +85,6 @@
                 {/if}
             </div>
         </div>
-      </section>      
+      </section>  
 </main>
 <Error bind:error={error} />

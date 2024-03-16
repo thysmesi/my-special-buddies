@@ -24,6 +24,7 @@ export default {
         900: "#A5371B",
       },
 
+      bad: "#eb4034",
       transparent: "transparent",
       background: "white",
       "background-second": "#EEEEEE",
@@ -32,7 +33,8 @@ export default {
       shadow: "#1b1b1b86",
       "shadow-clear": "#1b1b1b00",
       accent: "rgb(12, 151, 178)",
-      'accent-second': "#086d75"
+      'accent-second': "#086d75",
+      'accent-third': "#64bfd1"
     },
   },
   plugins: [require("flowbite/plugin")],
